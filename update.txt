@@ -1,0 +1,39 @@
+技术细节规类：
+
+	密码处理原则？ 增加密码加密因子存储到数据库中。当进行用户相关操作时，要验证密码与加密因子结合后的结果。即：md5(md5(iptpwd)).encrypt === password
+
+	验证码使用captcha函数库创建，并将文字加载到session中，图片保存到服务器，同时在每次生成前使用file辅助函数类库对10分钟前的文件进行删除，使用jquery中的load加载生成的图像到要验证的页面上，并添加点击刷新事件。
+
+已经完成的：
+
+	验证码完成
+	
+	用户登陆完成
+	
+	用户权限判断，按权限显示菜单！
+
+	更改后台框架，回归原始方式iframe；现有方式(将菜单存到session中)对于数据库查询过多（使用session仍不能完美解决该问题，且刷新是个问题）。
+
+	session做用户判断的方式由files改为数据库(mysql)，要更改的文件为/app/config/config.php中的sess_driver（存储方式）与sess_save_path（存储位置，数据库名为mzsj_sessions，字段及怎么存储是写到了系统类里的，可以改原始类/core/libraries/session/drivers/session_database_driver.php，一般是不用改的）两项
+
+	默认控制器改为Home，CI里还在使用老式构造方法（与类名相同的方法名为构造方法），所以Index不太好用。
+
+	完善跳转页面(错误提示)功能
+
+	用户资料修改，密码修改 完成
+
+	富文本编辑器、图片上传完成，同时对ci的上传类有个想法（增加文件的子目录分类功能）
+
+	在index.php中增加一个新的函数方法my_load_class，用来加载控制器，方便控制器之间的继承
+
+	后台总权限管理的类mzsj.php放入controllers/mzsj/文件夹内
+
+	修改list_to_tree方法，取消数据库中的level字段，减少在菜单修改中的数据查询
+
+下一步：
+
+	文章管理
+
+
+
+
