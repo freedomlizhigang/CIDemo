@@ -31,7 +31,7 @@ class Updatecache {
 	}
 	// 栏目缓存
 	public function catecache(){
-		$this->CI->load->model('admin_model');
+		$this->CI->load->model('category_model');
 		$categorys = array();
 		$categorys = $this->CI->category_model->getAll('*',NULL,'1000','catid ASC');
 		// 将数组索引转化为typeid，phpcms v9的select方法支持定义数组索引，这个坑花了两小时

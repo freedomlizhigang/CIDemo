@@ -36,7 +36,7 @@ function str_cut($string, $length, $dot = '...') {
 	if($strlen <= $length) return $string;
 	$string = str_replace(array(' ','&nbsp;', '&amp;', '&quot;', '&#039;', '&ldquo;', '&rdquo;', '&mdash;', '&lt;', '&gt;', '&middot;', '&hellip;'), array('∵',' ', '&', '"', "'", '“', '”', '—', '<', '>', '·', '…'), $string);
 	$strcut = '';
-	if(strtolower(CHARSET) == 'utf-8') {
+	if(strtolower(config_item('charset')) == 'utf-8') {
 		$length = intval($length-strlen($dot)-$length/3);
 		$n = $tn = $noc = 0;
 		while($n < strlen($string)) {
@@ -98,7 +98,7 @@ function string2array($data) {
 	}else{
 		if(strpos($data, '{\\')===0) $data = stripslashes($data);
 		$array=json_decode($data,true);
-		if(strtolower(CHARSET)=='gbk'){
+		if(strtolower(config_item('charset'))=='gbk'){
 			$array = mult_iconv("UTF-8", "GBK//IGNORE", $array);
 		}
 	}
@@ -114,7 +114,7 @@ function string2array($data) {
 function array2string($data, $isformdata = 1) {
 	if($data == '' || empty($data)) return '';
 	if($isformdata) $data = new_stripslashes($data);
-	if(strtolower(CHARSET)=='gbk'){
+	if(strtolower(config_item('charset'))=='gbk'){
 		$data = mult_iconv("GBK", "UTF-8", $data);
 	}
 	if (version_compare(PHP_VERSION,'5.3.0','<')){

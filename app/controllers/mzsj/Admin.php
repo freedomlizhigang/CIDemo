@@ -55,6 +55,7 @@ class Admin extends Mzsj {
 				// addlog
 				$this->addlog('adminid = '.$res);
 				// update admincache
+				$this->load->library('updatecache');
 				$this->updatecache->admincache();
 				$this->msg('AddAdmin Success!','mzsj/admin/index');
 			}
@@ -90,6 +91,7 @@ class Admin extends Mzsj {
 					// addlog
 					$this->addlog($savesql);
 					// update rolecache
+					$this->load->library('updatecache');
 					$this->updatecache->admincache();
 					$this->msg('UpdateAdmin Success!','mzsj/admin/index');
 				}
@@ -122,6 +124,7 @@ class Admin extends Mzsj {
 				// addlog
 				$this->addlog('adminid = .'.(int)$adminid);
 				// update admincache
+				$this->load->library('updatecache');
 				$this->updatecache->admincache();
 				$this->msg('Delete Success!','mzsj/admin/index');
 		}else{
@@ -159,6 +162,7 @@ class Admin extends Mzsj {
 				// addlog
 				$this->addlog('roleid = '.$res);
 				// update rolecache
+				$this->load->library('updatecache');
 				$this->updatecache->rolecache();
 				$this->msg('AddRole Success!','mzsj/admin/rolelist');
 			}
@@ -192,6 +196,7 @@ class Admin extends Mzsj {
 					// addlog
 					$this->addlog($savesql);
 					// update rolecache
+					$this->load->library('updatecache');
 					$this->updatecache->rolecache();
 					$this->msg('UpdateRole Success!','mzsj/admin/rolelist');
 				}
@@ -230,6 +235,7 @@ class Admin extends Mzsj {
 				// addlog
 				$this->addlog('roleid = .'.(int)$roleid);
 				// update rolecache
+				$this->load->library('updatecache');
 				$this->updatecache->rolecache();
 				$this->msg('Delete Success!','mzsj/admin/rolelist');
 			}else{

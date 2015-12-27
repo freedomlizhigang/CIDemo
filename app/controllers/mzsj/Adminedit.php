@@ -32,6 +32,7 @@ class Adminedit extends Mzsj {
 				// addlog
 				$this->addlog($savesql);
 				// update rolecache
+				$this->load->library('updatecache');
 				$this->updatecache->admincache();
 				$this->msg('UpdateAdmin Success!','mzsj/adminedit/editadmin');
 			}
@@ -72,6 +73,7 @@ class Adminedit extends Mzsj {
 				// addlog
 				$this->addlog($savesql);
 				// update rolecache
+				$this->load->library('updatecache');
 				$this->updatecache->admincache();
 				$this->msg('UpdateAdmin Success!','mzsj/adminedit/editpassword');
 			}

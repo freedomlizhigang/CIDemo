@@ -9,5 +9,3 @@ if (!function_exists('my_load_class'))
 		require_once(APPPATH.'/'.$directory.'/'.$class.'.php');
 	}
 }
-// 设置字符集，不用去配置文件中加载
-define('CHARSET','UTF-8');

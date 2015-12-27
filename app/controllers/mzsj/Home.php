@@ -130,6 +130,9 @@ class Home extends Mzsj {
 		$data['caches'][] = '更新用户组缓存成功！';
 		$this->updatecache->admincache();
 		$data['caches'][] = '更新管理员缓存成功！';
+		$this->updatecache->catecache();
+		$data['caches'][] = '更新栏目缓存成功！';
+		$data['caches'][] = '<span class=color_red>更新缓存完成！</span>';
 		// addlog
 		$this->addlog('UpdateCache');
 		$this->load->view('mzsj/home_allcache',$data);
